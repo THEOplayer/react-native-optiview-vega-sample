@@ -72,7 +72,7 @@ export const SOURCES: StreamDescription[] = [
   },
   {
     id: 'dash_ima_vmap',
-    title: 'DASH - CSAI - Google IMA mid-roll VMAP',
+    title: 'DASH - CSAI - Google IMA VMAP preroll, midroll and postroll',
     streamType: StreamType.dash,
     contentType: ContentType.vod,
     isContentProtected: false,
