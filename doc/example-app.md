@@ -21,6 +21,35 @@ which provides a `THEOplayerView` component that aligns with our `react-native-t
 - Ads use the supplied `@logituit-rel/logix-ads-manager` **0.3.0+theoplayer.3** archive. See the [patch notes](../lib/LOGIX_AD_MANAGER_PATCH.md) for installation, behavior, and limitations.
 - Optionally, Visual Studio Code with Vega plugins is installed.
 
+### Configure the license
+
+1. Obtain a valid THEOplayer React Native license with Vega support from [the THEOplayer portal](https://portal.theoplayer.com/).
+2. From the sample repository root, copy [`.env.example`](../.env.example) to `.env` if you do not already have one:
+
+   ```sh
+   cp -n .env.example .env
+   ```
+
+3. Open `.env` and replace the empty value with your license key:
+
+   ```dotenv
+   THEO_LICENSE_KEY=your_theoplayer_react_native_license_key
+   ```
+
+   Replace the placeholder above with the actual key. You do not need to edit `src/screens/PlayerScreen.tsx`: it imports `THEO_LICENSE_KEY` through the configured `react-native-dotenv` Babel plugin and passes it to the player's `license` property.
+
+4. After changing `.env`, restart Metro with its cache reset for development:
+
+   ```sh
+   npm start -- --reset-cache
+   ```
+
+   For a release app, rebuild and reinstall with `npm run app:release`. Reloading an already-built release app does not update its license.
+
+Local `.env` files are ignored by Git; keep your actual key there, not in `.env.example` or committed source code. The value is embedded in the JavaScript bundle at build time, not fetched from `.env` on the device.
+
+If `.env` is missing or `THEO_LICENSE_KEY` is blank, the license remains unset. Sources outside the release SDK's built-in demo domains require a valid license covering those sources.
+
 ### Build
 
 Install dependencies:
@@ -31,7 +60,7 @@ The standalone Vega adapter uses shared API definitions from `react-native-theop
 
 Run `npm test`, `npm run typescript`, and `npm run lint` to check the sample before building.
 
-Set your THEOplayer React Native license in `src/screens/PlayerScreen.tsx` before testing sources outside the release SDK's built-in demo domains.
+[Configure the license](#configure-the-license) before building or starting Metro.
 
 Then build & run preferable using Visual Studio Code's Vega extensions, or alternatively:
 
@@ -45,12 +74,13 @@ The player is created using the `THEOplayerView` component. A basic example is s
 
 ```tsx
 import React, {useState} from 'react';
+import {THEO_LICENSE_KEY} from '@env';
 import {View} from 'react-native';
 import {THEOplayer, PlayerConfiguration, THEOplayerView} from '@theoplayer/react-native-vega';
 
 const playerConfig: PlayerConfiguration = {
-  // insert THEOplayer React Native license here
-  license: undefined,
+  // The license is loaded from your local .env file.
+  license: THEO_LICENSE_KEY?.trim() || undefined,
 };
 
 export const App = () => {
@@ -82,12 +112,14 @@ export const App = () => {
 Optionally, a player can be created in headless mode, already providing it with a source.
 
 ```tsx
+import {THEO_LICENSE_KEY} from '@env';
+
 const playerConfig: PlayerConfiguration = {
-  // insert THEOplayer React Native license here  
-  license: undefined,
+  // The license is loaded from your local .env file.
+  license: THEO_LICENSE_KEY?.trim() || undefined,
 };
 
-const vegaPlayer = await THEOplayer.create(config);
+const vegaPlayer = await THEOplayer.create(playerConfig);
 vegaPlayer.source = { /*...*/};
 ```
 
