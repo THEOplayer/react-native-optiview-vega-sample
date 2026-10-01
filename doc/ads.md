@@ -10,8 +10,10 @@ While THEOplayer supports a wide range of different
 `@theoplayer/react-native-vega` currently only supports client-side ad insertion (CSAI) through [Google IMA](#getting-started-with-google-ima).
 
 As recommended by Amazon, `@theoplayer/react-native-vega` uses the [Logix Google IMA Ads Manager](https://logituit.com/logixads-manager/), 
-which hosts the Google IMA SDK in a WebView component. It is not available in a public registry,
-so it must be included in the app's local library folder.
+which hosts the Google IMA SDK in a WebView component. This sample uses the locally supplied
+`@logituit-rel/logix-ads-manager@0.3.0+theoplayer.3` integration patch, not an upstream Logituit release.
+See [Logix Ads Manager patch notes](../lib/LOGIX_AD_MANAGER_PATCH.md) for why the patch is required,
+what it changes, and how to verify ad playback and remote-control behavior.
 
 The following sections will guide you through the process of setting up Google IMA in your app.
 
@@ -23,8 +25,8 @@ Install the following dependencies:
 
 ```shell
 npm install \
-  @amazon-devices/webview \
-  ./lib/logituit-logix-ads-manager-0.2.2.tgz
+  @amazon-devices/webview@4.0.4-rn-83 \
+  ./lib/logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz
 ```
 
 The WebView package is required to host the Logix Ads Manager, which in turn hosts the Google IMA SDK.

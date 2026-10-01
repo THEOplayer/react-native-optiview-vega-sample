@@ -17,7 +17,7 @@ This projects falls under the license as defined in https://github.com/THEOplaye
 
 This project demonstrates the use of THEOplayer in a sample Vega/Kepler app.
 
-[Amazon Vega](https://developer.amazon.com/docs/kepler-tv/kepler_overview.html) is a
+[Amazon Vega](https://developer.amazon.com/docs/vega/0.24/vega-release-notes) is a
 React Native SDK that helps third-party developers create, build, test, package, and publish
 apps for Fire TV devices running the Vega OS. With Vega, your app can run on multiple Amazon devices.
 
@@ -40,9 +40,11 @@ apps for Fire TV devices running the Vega OS. With Vega, your app can run on mul
 ### Getting Started
 
 A good place to start is the example application provided in this repository. 
-It demonstrates how to set up and use the `@theoplayer/react-native-vega` package.
+It demonstrates how to set up and use `@theoplayer/react-native-vega` 1.0.0 with React Native 0.83, React 19.2, and Vega runtime 4.
 
 - [Building the example application](./doc/example-app.md)
+- [Changelog](./CHANGELOG.md)
+- [Logix Ads Manager integration patch](./lib/LOGIX_AD_MANAGER_PATCH.md)
 - Knowledge Base
   - [Advertisements](./doc/ads.md)
   - [Useful CLI commands](./doc/cli_commands.md)
