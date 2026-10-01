@@ -11,3 +11,6 @@ generated
 logs
 .DS_Store
 buildinfo.json
+.env
+.env.*
+!.env.example
