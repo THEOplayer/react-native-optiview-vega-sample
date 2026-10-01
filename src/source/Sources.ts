@@ -21,7 +21,7 @@ export const SOURCES: StreamDescription[] = [
   },
   {
     id: 'dash01ima',
-    title: 'Elephants Dream (Preroll Ad with IMA)',
+    title: 'DASH - CSAI - Google IMA pre-roll',
     streamType: StreamType.dash,
     contentType: ContentType.vod,
     isContentProtected: false,
@@ -30,7 +30,7 @@ export const SOURCES: StreamDescription[] = [
     sourceDescription: {
       sources: [
         {
-          src: 'https://dash.akamaized.net/dash264/TestCasesHD/2a/qualcomm/1/MultiResMPEG2.mpd',
+          src: 'https://cdn.theoplayer.com/video/dash/webvtt-embedded-in-isobmff/Manifest.mpd',
           type: 'application/dash+xml',
         },
       ],
@@ -39,6 +39,57 @@ export const SOURCES: StreamDescription[] = [
           integration: AdIntegrationKind.google_ima,
           sources: {
             src: 'https://cdn.theoplayer.com/demos/ads/vast/dfp-preroll-no-skip.xml',
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: 'dash_ima_midroll_vast',
+    title: 'DASH - CSAI - Google IMA mid-roll VAST',
+    streamType: StreamType.dash,
+    contentType: ContentType.vod,
+    isContentProtected: false,
+    hasCaptions: false,
+    isMultiPeriod: false,
+    sourceDescription: {
+      sources: [
+        {
+          src: 'https://contentserver.prudentgiraffe.com/videos/dash/webvtt-embedded-in-isobmff/Manifest.mpd',
+          type: 'application/dash+xml',
+        },
+      ],
+      ads: [
+        {
+          integration: AdIntegrationKind.google_ima,
+          sources: {
+            src: 'https://cdn.theoplayer.com/demos/ads/vast/dfp-preroll-no-skip.xml',
+          },
+          timeOffset: 10,
+        },
+      ],
+    },
+  },
+  {
+    id: 'dash_ima_vmap',
+    title: 'DASH - CSAI - Google IMA mid-roll VMAP',
+    streamType: StreamType.dash,
+    contentType: ContentType.vod,
+    isContentProtected: false,
+    hasCaptions: false,
+    isMultiPeriod: false,
+    sourceDescription: {
+      sources: [
+        {
+          src: 'https://contentserver.prudentgiraffe.com/videos/dash/webvtt-embedded-in-isobmff/Manifest.mpd',
+          type: 'application/dash+xml',
+        },
+      ],
+      ads: [
+        {
+          integration: AdIntegrationKind.google_ima,
+          sources: {
+            src: 'https://cdn.theoplayer.com/demos/ads/vmap/vmap-pre-mid-post-no-skip.xml',
           },
         },
       ],
@@ -423,6 +474,111 @@ export const SOURCES: StreamDescription[] = [
         displayIconUri:
           'https://theoplayer-cdn.s3.eu-west-1.amazonaws.com/react-native-theoplayer/temp/THEOPlayer-200x200.png',
         artist: 'The elephant',
+      },
+    },
+  },
+  {
+    id: 'hls_ima_preroll',
+    title: 'HLS - CSAI - Google IMA pre-roll',
+    streamType: StreamType.hls_mpeg2,
+    contentType: ContentType.vod,
+    isContentProtected: false,
+    hasCaptions: false,
+    isMultiPeriod: false,
+    sourceDescription: {
+      sources: [
+        {
+          src: 'https://cdn.theoplayer.com/video/elephants-dream/playlistCorrectionENG.m3u8',
+          type: 'application/x-mpegurl',
+        },
+      ],
+      ads: [
+        {
+          integration: AdIntegrationKind.google_ima,
+          sources:
+            'https://cdn.theoplayer.com/demos/ads/vast/dfp-preroll-no-skip.xml',
+        },
+      ],
+      poster:
+        'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-1200x675.png',
+      metadata: {
+        title: 'Elephants Dream with Preroll',
+        subtitle: 'Elephants Dream with Preroll Subtitle',
+        album: 'Elephants Album',
+        displayIconUri:
+          'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-200x200.png',
+        artist: 'The Dream',
+      },
+    },
+  },
+  {
+    id: 'hls_ima_midroll_vast',
+    title: 'HLS - CSAI - Google IMA mid-roll VAST',
+    streamType: StreamType.hls_mpeg2,
+    contentType: ContentType.vod,
+    isContentProtected: false,
+    hasCaptions: false,
+    isMultiPeriod: false,
+    sourceDescription: {
+      sources: [
+        {
+          src: 'https://cdn.theoplayer.com/video/elephants-dream/playlistCorrectionENG.m3u8',
+          type: 'application/x-mpegurl',
+        },
+      ],
+      ads: [
+        {
+          integration: AdIntegrationKind.google_ima,
+          sources: {
+            src: 'https://cdn.theoplayer.com/demos/ads/vast/dfp-preroll-no-skip.xml',
+          },
+          timeOffset: 10,
+        },
+      ],
+      poster:
+        'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-1200x675.png',
+      metadata: {
+        title: 'Elephants Dream with Midroll',
+        subtitle: 'Elephants Dream with Midroll Subtitle',
+        album: 'Ellies Album',
+        displayIconUri:
+          'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-200x200.png',
+        artist: 'Ellie',
+      },
+    },
+  },
+  {
+    id: 'hls_ima_vmap',
+    title: 'HLS - CSAI - Google IMA VMAP',
+    streamType: StreamType.hls_mpeg2,
+    contentType: ContentType.vod,
+    isContentProtected: false,
+    hasCaptions: false,
+    isMultiPeriod: false,
+    sourceDescription: {
+      sources: [
+        {
+          src: 'https://cdn.theoplayer.com/video/elephants-dream/playlistCorrectionENG.m3u8',
+          type: 'application/x-mpegurl',
+        },
+      ],
+      ads: [
+        {
+          integration: AdIntegrationKind.google_ima,
+          sources: {
+            src: 'https://cdn.theoplayer.com/demos/ads/vast/dfp-preroll-no-skip.xml',
+          },
+        },
+      ],
+      poster:
+        'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-1200x675.png',
+      metadata: {
+        title: 'Elephants Dream with VMAP',
+        subtitle: 'Elephants Dream with VMAP Subtitle',
+        album: 'Ellies Album',
+        displayIconUri:
+          'https://cdn.theoplayer.com/react-native-theoplayer/temp/THEOPlayer-200x200.png',
+        artist: 'Ellie',
       },
     },
   },
