@@ -12,10 +12,28 @@ While THEOplayer supports a wide range of different
 As recommended by Amazon, `@theoplayer/react-native-vega` uses the [Logix Google IMA Ads Manager](https://logituit.com/logixads-manager/), 
 which hosts the Google IMA SDK in a WebView component. This sample uses the locally supplied
 `@logituit-rel/logix-ads-manager@0.3.0+theoplayer.3` integration patch, not an upstream Logituit release.
+**The supplied `.tgz` is already patched: install it directly, with no manual patching required.**
+The `.patch` file in `lib/` is included only for review and reproduction; do not apply it again.
 See [Logix Ads Manager patch notes](../lib/LOGIX_AD_MANAGER_PATCH.md) for why the patch is required,
 what it changes, and how to verify ad playback and remote-control behavior.
 
 The following sections will guide you through the process of setting up Google IMA in your app.
+
+## Skippable ads
+
+Skippable ads are not supported in this sample's current THEOplayer Vega / Logix IMA integration. Use non-skippable ad creatives, as in the demo sources.
+
+Logix runs the **Google IMA HTML5 SDK inside a Vega WebView**, rather than a native Android IMA SDK. Ad-format support therefore depends on IMA's support for that connected-TV environment. IMA can reject a skippable creative with error code `200` and the message:
+
+```text
+The provided ad type: skippablevideo is not supported.
+```
+
+This is an ad-type rejection, not merely a missing Skip button. Adding a custom button, calling the skip API, or changing `uiEnabled` does not make IMA accept an unsupported creative. A tag that works in a desktop browser is not necessarily supported in the TV WebView.
+
+Google's IMA SDK team described this limitation for HTML5 connected TVs in its [May 2024 support response](https://groups.google.com/g/ima-sdk/c/VN6w75e6pCU), in a discussion about Samsung Tizen and LG webOS. That response provides context, not a Vega-specific support guarantee or a permanent restriction on all Vega ad integrations. Google's [additional-platform guidance](https://developers.google.com/interactive-media-ads/docs/sdks/other) recommends contacting its account representatives for platform-specific support. Revalidate skippable ads before enabling them with a future SDK or integration update.
+
+The supplied [Logix integration patch](../lib/LOGIX_AD_MANAGER_PATCH.md) fixes packaged-HTML loading, media-control ownership, and focus handling. It does **not** change IMA's supported ad types or add skippable-ad support.
 
 ## Getting started with Google IMA
 
@@ -76,8 +94,8 @@ const imaSource = {
 };
 ```
 
-Optionally, the player's configuration can be set to remove the advertisement UI - in practice only the skip and countdown buttons -
-and to set allowed mime types for ads, as shown in the example app's player configuration:
+Optionally, the player's configuration can be set to hide the advertisement UI
+and to set allowed mime types for ads. These settings do not enable [skippable ads](#skippable-ads) in the current integration:
 
 ```tsx
 const playerConfig = {
@@ -95,7 +113,7 @@ const playerConfig = {
 THEOplayer provides an [Ads API](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/#ads-api) that enables additional features such as:
 
 - Querying whether an ad is currently playing;
-- Skipping the current ad (if possible);
+- Requesting an ad skip on supported integrations (not supported by the current Vega integration; see [Skippable ads](#skippable-ads));
 - Getting the ad break that is currently playing;
 
 ```tsx
@@ -136,10 +154,3 @@ player.addEventListener(PlayerEventType.AD_EVENT, (event: AdEvent) => {
 See [AdEvent](https://theoplayer.github.io/react-native-theoplayer/api/interfaces/AdEvent.html),
 [Ad](https://theoplayer.github.io/react-native-theoplayer/api/interfaces/Ad.html) and
 [AdBreak](https://theoplayer.github.io/react-native-theoplayer/api/interfaces/AdBreak.html) for more information.
-
-## Known issues and limitations
-
-The following list of known issues will be addressed in the future:
-
-- On a Vega virtual device, some ads may fail to play.
-- In an adbreak with multiple ads, subsequent ads sometimes fail to play.

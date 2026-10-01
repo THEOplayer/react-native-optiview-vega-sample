@@ -2,12 +2,14 @@
 
 This document describes the integration-specific patch to `@logituit-rel/logix-ads-manager` used with THEOplayer's React Native integration on Vega. It addresses ad-page loading and remote-control focus handling. It is not an upstream Logituit release.
 
+**No manual patching is required.** The supplied `logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz` already contains all changes described here. Install that archive directly; do not apply the `.patch` file again. The source patch is included for review and maintainer-led reproduction, not as an application installation or build step.
+
 | Item             | Value                                                                                                              |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Upstream package | `@logituit-rel/logix-ads-manager@0.3.0`                                                                            |
 | Patched version  | `0.3.0+theoplayer.3`                                                                                               |
 | Distribution     | [`logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz`](./logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz) |
-| Source patch     | [`logix-ads-manager-0.3.0-bundled-html.patch`](./logix-ads-manager-0.3.0-bundled-html.patch)                       |
+| Source patch     | [`logix-ads-manager-0.3.0-bundled-html.patch`](./logix-ads-manager-0.3.0-bundled-html.patch) (already applied to the archive) |
 
 The patch targets the React Native 0.83 Vega integration and retains upstream Logix 0.3.0's dependency requirements. It is not an upgrade path for React Native 0.72 or Logix 0.2.x. Align dependencies with your supported THEOplayer/Vega SDK release before installation, and validate your application's device and SDK combination before deployment.
 
