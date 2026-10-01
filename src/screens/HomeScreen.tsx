@@ -15,7 +15,7 @@ import THEOplayerLogo from '../assets/THEOplayerLogo.png';
 import FireTVLogo from '../assets/firetv.png';
 
 import * as AppPackage from '../../package.json';
-import * as THEOplayerPackage from '../../node_modules/@theoplayer/react-native-vega/package.json';
+import * as THEOplayerPackage from '../../node_modules/@dolby-optiview/react-native-vega/package.json';
 import {StackScreenProps} from '@amazon-devices/react-navigation__stack';
 import {AppStackParamList, Screens} from '../navigation/nagivation';
 import {StreamListHeader} from '../components/StreamListHeader';

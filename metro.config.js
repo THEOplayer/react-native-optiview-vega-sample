@@ -10,7 +10,7 @@ const config = {
   resolver: {
     resolveRequest: (context, moduleName, platform) => {
       if (moduleName === 'react-native-theoplayer') {
-        moduleName = '@theoplayer/react-native-vega';
+        moduleName = '@dolby-optiview/react-native-vega';
       }
       if (
         platform === 'kepler' &&

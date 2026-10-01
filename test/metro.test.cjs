@@ -7,7 +7,7 @@ for (const [name, moduleName, platform, expected] of [
     'uses the Vega adapter for player and UI imports',
     'react-native-theoplayer',
     'kepler',
-    '@theoplayer/react-native-vega',
+    '@dolby-optiview/react-native-vega',
   ],
   [
     'preserves the shared THEOplayer API subpath',

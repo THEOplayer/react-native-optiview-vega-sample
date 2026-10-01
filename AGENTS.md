@@ -10,7 +10,7 @@
 
 ## Integration Constraints
 
-- Keep `react-native-theoplayer` installed for the shared API used by the packaged Vega adapter. Metro must map only its bare package import to `@theoplayer/react-native-vega`, preserving shared API subpaths.
+- Keep `react-native-theoplayer` installed for the shared API used by the packaged Vega adapter. Metro must map only its bare package import to `@dolby-optiview/react-native-vega`, preserving shared API subpaths.
 - A custom Metro resolver must also preserve Vega's mapping of `react-native` and its subpaths to `@amazon-devices/react-native-kepler` on the `kepler` platform. Babel aliases alone do not cover all dependency imports.
 - Verify release source maps do not include the mobile THEOplayer implementation, and that the packaged Logix HTML exists at the path documented in `lib/LOGIX_AD_MANAGER_PATCH.md`.
 - RN 0.83 layout values are density-independent units. Do not divide window dimensions, percentages, or flex values by pixel density.

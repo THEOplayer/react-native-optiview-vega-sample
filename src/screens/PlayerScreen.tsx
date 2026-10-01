@@ -10,7 +10,7 @@ import {
   THEOplayerView,
   VegaFeatures,
   VegaPlayerConfiguration,
-} from '@theoplayer/react-native-vega';
+} from '@dolby-optiview/react-native-vega';
 import {
   AutoFocusGuide,
   CenteredControlBar,

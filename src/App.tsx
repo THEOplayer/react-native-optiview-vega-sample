@@ -8,7 +8,7 @@ import {
   enableFreeze,
   enableScreens,
 } from '@amazon-devices/react-native-screens';
-import {ContentProtectionRegistry} from '@theoplayer/react-native-vega';
+import {ContentProtectionRegistry} from '@dolby-optiview/react-native-vega';
 import {KeyOSDrmWidevineContentProtectionIntegrationFactory} from '@theoplayer/react-native-drm';
 
 // Enable play-out of assets protected with BuyDRM by registering a DRM connector.

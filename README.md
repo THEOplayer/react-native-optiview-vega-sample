@@ -1,4 +1,4 @@
-# THEOplayer React Native Vega Sample
+# Dolby OptiView React Native Vega Sample
 
 <img src="./doc/logo-optiview-dark.png#gh-dark-mode-only" height="120" alt="OptiView logo"><img src="./doc/logo-optiview-light.png#gh-light-mode-only" height="120" alt="OptiView logo"><img src="./doc/logo-react-native.png" height="120" alt="React Native logo"> <img src="./doc/logo-optiview-light.png#gh-light-mode-only" height="120" alt="OptiView logo"><img src="./doc/logo-firetv.png" height="120" alt="FireTV logo">
 
@@ -40,7 +40,7 @@ apps for Fire TV devices running the Vega OS. With Vega, your app can run on mul
 ### Getting Started
 
 A good place to start is the example application provided in this repository. 
-It demonstrates how to set up and use `@theoplayer/react-native-vega` 1.0.0 with React Native 0.83, React 19.2, and Vega runtime 4.
+It demonstrates how to set up and use `@dolby-optiview/react-native-vega` 1.0.0 with React Native 0.83, React 19.2, and Vega runtime 4.
 
 - [Building the example application](./doc/example-app.md)
 - [Changelog](./CHANGELOG.md)
@@ -51,7 +51,7 @@ It demonstrates how to set up and use `@theoplayer/react-native-vega` 1.0.0 with
 
 ### Documentation and API Reference
 
-The API of `@theoplayer/react-native-vega` aims to be compatible with the API of `react-native-theoplayer`,
+The API of `@dolby-optiview/react-native-vega` aims to be compatible with the API of `react-native-theoplayer`,
 the React Native SDK for all Web and mobile devices, which is documented here:
 
 - [THEOplayer React Native SDK Documentation](https://optiview.dolby.com/docs/theoplayer/react-native/)

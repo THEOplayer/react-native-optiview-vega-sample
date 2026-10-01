@@ -1,9 +1,9 @@
 ## Example Application
 
-The example application builds upon the `@theoplayer/react-native-vega` package to create a functional
+The example application builds upon the `@dolby-optiview/react-native-vega` package to create a functional
 Vega app.
 
-The `@theoplayer/react-native-vega` package is a private npm package, located in the `lib/` folder,
+The `@dolby-optiview/react-native-vega` package is a private npm package, located in the `lib/` folder,
 which provides a `THEOplayerView` component that aligns with our `react-native-theoplayer` SDK.
 
 ![](./sample-01.png)
@@ -12,11 +12,11 @@ which provides a `THEOplayerView` component that aligns with our `react-native-t
 
 - Vega SDK **v0.24** with a device running **Vega OS 1.2** or newer and supporting Vega React Native runtime 4.
 - Node.js **22.14.0** or newer.
-- This sample uses **React Native 0.83.0**, **React 19.2.0**, and **THEOplayer Vega 1.0.0**.
+- This sample uses **React Native 0.83.0**, **React 19.2.0**, and **Dolby OptiView Vega 1.0.0**.
 - In order to use one of these THEOplayer SDKs, it is necessary to obtain a **valid React Native THEOplayer license**. You can sign up for a THEOplayer SDK license through [our portal](https://portal.theoplayer.com/).
 - The local npm THEOplayer packages, which are not publicly available yet but provided in the `lib` folder:
-    - `@theoplayer/vega`: THEOplayer native SDK for Vega.
-    - `@theoplayer/react-native-vega`: React Native API for Vega.
+    - `@dolby-optiview/vega`: Dolby OptiView native SDK for Vega.
+    - `@dolby-optiview/react-native-vega`: React Native API for Vega.
     - `@theoplayer/theomux-vega`: Turbo module hosting THEO's own transmuxing functionality for TS-based HLS streams.
 - Ads use the supplied `@logituit-rel/logix-ads-manager` **0.3.0+theoplayer.3** archive. See the [patch notes](../lib/LOGIX_AD_MANAGER_PATCH.md) for installation, behavior, and limitations.
 - Optionally, Visual Studio Code with Vega plugins is installed.
@@ -56,7 +56,7 @@ Install dependencies:
 
 `npm ci`
 
-The standalone Vega adapter uses shared API definitions from `react-native-theoplayer@10.13.0`. Keep that dependency installed. The sample's Metro resolver routes bare `react-native-theoplayer` imports to `@theoplayer/react-native-vega`, while preserving the shared API subpaths and Vega's React Native runtime mapping. This also ensures the UI and DRM connectors use the Vega implementation.
+The standalone Vega adapter uses shared API definitions from `react-native-theoplayer@10.13.0`. Keep that dependency installed. The sample's Metro resolver routes bare `react-native-theoplayer` imports to `@dolby-optiview/react-native-vega`, while preserving the shared API subpaths and Vega's React Native runtime mapping. This also ensures the UI and DRM connectors use the Vega implementation.
 
 Run `npm test`, `npm run typescript`, and `npm run lint` to check the sample before building.
 
@@ -76,7 +76,7 @@ The player is created using the `THEOplayerView` component. A basic example is s
 import React, {useState} from 'react';
 import {THEO_LICENSE_KEY} from '@env';
 import {View} from 'react-native';
-import {THEOplayer, PlayerConfiguration, THEOplayerView} from '@theoplayer/react-native-vega';
+import {THEOplayer, PlayerConfiguration, THEOplayerView} from '@dolby-optiview/react-native-vega';
 
 const playerConfig: PlayerConfiguration = {
   // The license is loaded from your local .env file.

@@ -7,9 +7,9 @@ is THEOplayer's [Knowledge Base](https://optiview.dolby.com/docs/theoplayer/know
 
 While THEOplayer supports a wide range of different
 [ad types](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/#an-overview-of-theoplayers-different-ad-types),
-`@theoplayer/react-native-vega` currently only supports client-side ad insertion (CSAI) through [Google IMA](#getting-started-with-google-ima).
+`@dolby-optiview/react-native-vega` currently only supports client-side ad insertion (CSAI) through [Google IMA](#getting-started-with-google-ima).
 
-As recommended by Amazon, `@theoplayer/react-native-vega` uses the [Logix Google IMA Ads Manager](https://logituit.com/logixads-manager/), 
+As recommended by Amazon, `@dolby-optiview/react-native-vega` uses the [Logix Google IMA Ads Manager](https://logituit.com/logixads-manager/),
 which hosts the Google IMA SDK in a WebView component. This sample uses the locally supplied
 `@logituit-rel/logix-ads-manager@0.3.0+theoplayer.3` integration patch, not an upstream Logituit release.
 **The supplied `.tgz` is already patched: install it directly, with no manual patching required.**
@@ -21,7 +21,7 @@ The following sections will guide you through the process of setting up Google I
 
 ## Skippable ads
 
-Skippable ads are not supported in this sample's current THEOplayer Vega / Logix IMA integration. Use non-skippable ad creatives, as in the demo sources.
+Skippable ads are not supported in this sample's current Dolby OptiView Vega / Logix IMA integration. Use non-skippable ad creatives, as in the demo sources.
 
 Logix runs the **Google IMA HTML5 SDK inside a Vega WebView**, rather than a native Android IMA SDK. Ad-format support therefore depends on IMA's support for that connected-TV environment. IMA can reject a skippable creative with error code `200` and the message:
 
