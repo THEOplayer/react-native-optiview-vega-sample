@@ -48,7 +48,7 @@ export const StreamListHeader = ({style}: StreamItemProps) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingHorizontal: 25,
+    paddingHorizontal: 12.5,
     overflow: 'hidden',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 24,
+    fontSize: 12,
   },
   textCentered: {
     fontWeight: 'bold',
-    fontSize: 24,
+    fontSize: 12,
     alignSelf: 'center',
   },
 });

@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
-import {
-  StyleProp,
-  TouchableOpacity,
-  TouchableOpacityProps,
-  ViewStyle,
-} from 'react-native';
+import {StyleProp, Pressable, PressableProps, ViewStyle} from 'react-native';
 
-interface FocusableElementProps extends TouchableOpacityProps {
+interface FocusableElementProps extends Omit<PressableProps, 'style'> {
+  style?: StyleProp<ViewStyle>;
   preferredFocus?: boolean;
   children?: React.ReactNode;
   onBlur?: () => void;
@@ -36,8 +32,8 @@ export const FocusableElement = ({
   };
 
   return (
-    <TouchableOpacity
-      activeOpacity={1}
+    <Pressable
+      role="button"
       onFocus={focusHandler}
       onBlur={blurHandler}
       hasTVPreferredFocus={preferredFocus}
@@ -45,7 +41,7 @@ export const FocusableElement = ({
       style={[style, isFocused ? onFocusOverrideStyle : undefined]}
       {...otherProps}>
       {children}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

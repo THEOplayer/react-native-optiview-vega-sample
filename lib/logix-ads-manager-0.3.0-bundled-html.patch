@@ -1,0 +1,36 @@
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "@logituit-rel/logix-ads-manager",
+-  "version": "0.3.0",
++  "version": "0.3.0+theoplayer.3",
+   "description": "Logix Ads Manager uses IMA SDK for HTML5 and display Ads using a WebView in a Vega Application. This package is specifically designed for Vega OS.",
+   "keywords": [
+   "Vega OS",
+diff --git a/dist/AdsContainer.js b/dist/AdsContainer.js
+--- a/dist/AdsContainer.js
++++ b/dist/AdsContainer.js
+@@ -84,6 +84,9 @@
+             setDisplayWebview(true);
+         });
+         const resumeRequestedId = logixIMAWrapper?.adsManager.addEventListener(interface_1.AdEventType.CONTENT_RESUME_REQUESTED, () => {
++            if (viewRef?.current) {
++                react_native_kepler_1.FocusManager.blur(viewRef.current);
++            }
+             setDisplayWebview(false);
+         });
+         if (onError) {
+@@ -117,7 +120,7 @@
+-        ], ref: viewRef, hasTVPreferredFocus: true, focusable: displayWebview, accessible: displayWebview },
+-        react_1.default.createElement(MemoizedWebView_1.default, { ref: webRef, allowFileAccess: true, source: {
++        ], ref: viewRef, hasTVPreferredFocus: displayWebview, focusable: displayWebview, accessible: displayWebview },
++        react_1.default.createElement(MemoizedWebView_1.default, { ref: webRef, allowFileAccess: true, allowsDefaultMediaControl: false, focusable: displayWebview, source: {
+                 // uri: 'file:///pkg/assets/raw/ads-manager.html',
+-                uri: react_native_1.Image.resolveAssetSource(require('./ads-manager.html')).uri || SOURCE_FALLBACK_URI,
+-            }, mixedContentMode: "always", mediaPlaybackRequiresUserAction: false, javaScriptEnabled: true, thirdPartyCookiesEnabled: true, hasTVPreferredFocus: wvFocus, onLoad: () => {
++                uri: SOURCE_FALLBACK_URI,
++            }, mixedContentMode: "always", mediaPlaybackRequiresUserAction: false, javaScriptEnabled: true, thirdPartyCookiesEnabled: true, hasTVPreferredFocus: displayWebview && wvFocus, onLoad: () => {
+                 if (adTagUrl)
+                     logixIMAWrapper?.startAdsWith(adTagUrl, autoPlayAdBreaks);

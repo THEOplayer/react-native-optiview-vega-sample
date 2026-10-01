@@ -47,20 +47,20 @@ export const StreamItem = (props: StreamItemProps) => {
 
 const styles = StyleSheet.create({
   tileContainer: {
-    height: 70,
+    height: 35,
     width: '100%',
     flex: 1,
-    borderRadius: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    paddingHorizontal: 25,
+    borderRadius: 5,
+    marginRight: 5,
+    marginLeft: 5,
+    paddingHorizontal: 12.5,
     overflow: 'hidden',
     alignItems: 'flex-start',
     justifyContent: 'center',
     alignSelf: 'center',
   },
   tileContainerSelected: {
-    borderWidth: 2,
+    borderWidth: 1,
     backgroundColor: '#FFFF0022',
     borderColor: COLORS.YELLOW,
   },

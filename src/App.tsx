@@ -4,6 +4,10 @@ import {HomeScreen} from './screens/HomeScreen';
 import {PlayerScreen} from './screens/PlayerScreen';
 import {NavigationContainer} from '@amazon-devices/react-navigation__native';
 import {AppStackParamList, Screens} from './navigation/nagivation';
+import {
+  enableFreeze,
+  enableScreens,
+} from '@amazon-devices/react-native-screens';
 import {ContentProtectionRegistry} from '@theoplayer/react-native-vega';
 import {KeyOSDrmWidevineContentProtectionIntegrationFactory} from '@theoplayer/react-native-drm';
 
@@ -13,6 +17,9 @@ ContentProtectionRegistry.registerContentProtectionIntegration(
   'widevine',
   new KeyOSDrmWidevineContentProtectionIntegrationFactory(),
 );
+
+enableScreens();
+enableFreeze();
 
 const Stack = createStackNavigator<AppStackParamList>();
 

@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   columnText: {
-    padding: 5,
-    fontSize: 24,
+    padding: 2.5,
+    fontSize: 12,
     color: 'white',
   },
   image: {
-    width: 25,
-    height: 25,
+    width: 12.5,
+    height: 12.5,
     tintColor: 'white',
   },
 });

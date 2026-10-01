@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: 80,
+    padding: 40,
     backgroundColor: COLORS.BLACK,
   },
   header: {
@@ -101,24 +101,24 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   meta: {
-    padding: 25,
+    padding: 12.5,
   },
   metaText: {
-    fontSize: 24,
+    fontSize: 12,
     color: COLORS.WHITE,
   },
   theoLogo: {
     resizeMode: 'contain',
-    width: 700,
-    height: 120,
+    width: 350,
+    height: 60,
   },
   fireLogo: {
     resizeMode: 'contain',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
   },
   listHeader: {
-    marginTop: 50,
+    marginTop: 25,
   },
   list: {
     width: '100%',

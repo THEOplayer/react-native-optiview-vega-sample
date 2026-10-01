@@ -41,11 +41,11 @@ const DEFAULT_VEGA_THEME = {
   text: {
     textAlign: 'center',
     alignSelf: 'center',
-    fontSize: 22,
+    fontSize: 16,
   } as TextStyle,
   dimensions: {
-    controlBarHeight: 60,
-    centerControlBarHeight: 72,
+    controlBarHeight: 36,
+    centerControlBarHeight: 44,
   },
 };
 
@@ -77,7 +77,7 @@ export const PlayerScreen = ({
           <UiContainer
             theme={DEFAULT_VEGA_THEME}
             player={player}
-            behind={<CenteredDelayedActivityIndicator size={50} />}
+            behind={<CenteredDelayedActivityIndicator size={25} />}
             top={
               <AutoFocusGuide>
                 <ControlBar>
