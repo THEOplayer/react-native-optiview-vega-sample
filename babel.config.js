@@ -6,7 +6,7 @@ module.exports = {
       {
         moduleName: '@env',
         path: '.env',
-        allowlist: ['THEO_LICENSE_KEY'],
+        allowlist: ['DOLBY_LICENSE_KEY'],
         allowUndefined: true,
       },
     ],

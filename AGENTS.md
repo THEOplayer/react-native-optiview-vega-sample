@@ -6,6 +6,7 @@
 - Run `npm test`, `npm run typescript`, and `npm run lint`.
 - Check formatting with `npx --no-install prettier --check src test package.json babel.config.js metro.config.js eslint.config.mjs tsconfig.json`.
 - Build release packages with `npm run build:release`; Vega SDK 0.24 produces artifacts under `build/{aarch64,armv7,x86_64}-release/`.
+- Keep `--reset-cache` in release builds: Metro can reuse a stale inlined `DOLBY_LICENSE_KEY` after `.env` changes. Check license presence/equality without printing the key; rebuilding still requires reinstalling the app.
 - `vega project doctor` checks manifest and SDK compatibility. Builds do not replace on-device playback, ad, and remote-control smoke tests.
 
 ## Integration Constraints

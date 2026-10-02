@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {THEO_LICENSE_KEY} from '@env';
+import {DOLBY_LICENSE_KEY} from '@env';
 import {StyleSheet, TextStyle, View} from 'react-native';
 import {StackScreenProps} from '@amazon-devices/react-navigation__stack';
 import {AppStackParamList, Screens} from '../navigation/nagivation';
@@ -29,11 +29,11 @@ import {
   UiContainer,
 } from '@theoplayer/react-native-ui';
 
-// Copy .env.example to .env and set THEO_LICENSE_KEY to avoid hardcoding the license.
+// Copy .env.example to .env and set DOLBY_LICENSE_KEY to avoid hardcoding the license.
 // Babel embeds it in the app bundle; restart Metro with --reset-cache after editing .env.
 // A missing or blank value leaves the license unset.
 const playerConfig: VegaPlayerConfiguration = {
-  license: THEO_LICENSE_KEY?.trim() || undefined, // Add your THEOplayer React Native license key here
+  license: DOLBY_LICENSE_KEY?.trim() || undefined, // Add your THEOplayer React Native license key here
   features: [VegaFeatures.LOGIX_IMA_ADS],
 };
 

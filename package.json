@@ -21,7 +21,7 @@
     "test": "node --test \"test/*.test.cjs\"",
     "build:debug": "react-native build-kepler --build-type Debug",
     "install:debug": "vega device install-app --directory . --buildType Debug",
-    "build:release": "react-native build-kepler --build-type Release",
+    "build:release": "react-native build-kepler --build-type Release --reset-cache",
     "install:release": "vega device install-app --directory . --buildType Release",
     "build": "npm-run-all build:release",
     "release": "npm-run-all lint typescript test build:release"

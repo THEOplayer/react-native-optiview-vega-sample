@@ -1,3 +1,3 @@
 declare module '@env' {
-  export const THEO_LICENSE_KEY: string | undefined;
+  export const DOLBY_LICENSE_KEY: string | undefined;
 }

@@ -33,10 +33,10 @@ which provides a `THEOplayerView` component that aligns with our `react-native-t
 3. Open `.env` and replace the empty value with your license key:
 
    ```dotenv
-   THEO_LICENSE_KEY=your_theoplayer_react_native_license_key
+   DOLBY_LICENSE_KEY=your_dolby_optiview_license_key
    ```
 
-   Replace the placeholder above with the actual key. You do not need to edit `src/screens/PlayerScreen.tsx`: it imports `THEO_LICENSE_KEY` through the configured `react-native-dotenv` Babel plugin and passes it to the player's `license` property.
+   Replace the placeholder above with the actual key. You do not need to edit `src/screens/PlayerScreen.tsx`: it imports `DOLBY_LICENSE_KEY` through the configured `react-native-dotenv` Babel plugin and passes it to the player's `license` property.
 
 4. After changing `.env`, restart Metro with its cache reset for development:
 
@@ -44,11 +44,11 @@ which provides a `THEOplayerView` component that aligns with our `react-native-t
    npm start -- --reset-cache
    ```
 
-   For a release app, rebuild and reinstall with `npm run app:release`. Reloading an already-built release app does not update its license.
+   For a release app, rebuild and reinstall with `npm run app:release`. The release build script resets Metro's transform cache because changing `.env` alone can otherwise reuse an older inlined license, even after rebuilding. When invoking the CLI directly, include `--reset-cache`. Reloading an already-built release app does not update its license.
 
 Local `.env` files are ignored by Git; keep your actual key there, not in `.env.example` or committed source code. The value is embedded in the JavaScript bundle at build time, not fetched from `.env` on the device.
 
-If `.env` is missing or `THEO_LICENSE_KEY` is blank, the license remains unset. Sources outside the release SDK's built-in demo domains require a valid license covering those sources.
+If `.env` is missing or `DOLBY_LICENSE_KEY` is blank, the license remains unset. Sources outside the release SDK's built-in demo domains require a valid license covering those sources.
 
 ### Build
 
@@ -74,13 +74,13 @@ The player is created using the `THEOplayerView` component. A basic example is s
 
 ```tsx
 import React, {useState} from 'react';
-import {THEO_LICENSE_KEY} from '@env';
+import {DOLBY_LICENSE_KEY} from '@env';
 import {View} from 'react-native';
 import {THEOplayer, PlayerConfiguration, THEOplayerView} from '@dolby-optiview/react-native-vega';
 
 const playerConfig: PlayerConfiguration = {
   // The license is loaded from your local .env file.
-  license: THEO_LICENSE_KEY?.trim() || undefined,
+  license: DOLBY_LICENSE_KEY?.trim() || undefined,
 };
 
 export const App = () => {
@@ -112,11 +112,11 @@ export const App = () => {
 Optionally, a player can be created in headless mode, already providing it with a source.
 
 ```tsx
-import {THEO_LICENSE_KEY} from '@env';
+import {DOLBY_LICENSE_KEY} from '@env';
 
 const playerConfig: PlayerConfiguration = {
   // The license is loaded from your local .env file.
-  license: THEO_LICENSE_KEY?.trim() || undefined,
+  license: DOLBY_LICENSE_KEY?.trim() || undefined,
 };
 
 const vegaPlayer = await THEOplayer.create(playerConfig);

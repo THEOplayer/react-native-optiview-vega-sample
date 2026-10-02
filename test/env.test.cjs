@@ -20,14 +20,14 @@ const transform = `
     .find(entry => entry.name.getText(ast) === 'playerConfig');
   const license = declaration.initializer.properties.find(entry => entry.name?.getText(ast) === 'license');
   const expression = license.initializer.getText(ast);
-  assert.ok(expression.replace(/\\s+/g, '') === 'THEO_LICENSE_KEY?.trim()||undefined', 'Player configuration must use the env license without an inline fallback');
+  assert.ok(expression.replace(/\\s+/g, '') === 'DOLBY_LICENSE_KEY?.trim()||undefined', 'Player configuration must use the env license without an inline fallback');
   assert.ok(source.includes('// Add your THEOplayer React Native license key here'));
   assert.ok(config.plugins?.some(entry => entry[0] === 'module:react-native-dotenv'));
   const plugins = config.plugins.map(entry => entry[0] === 'module:react-native-dotenv'
     ? [entry[0], {...entry[1], path: process.argv[1]}]
     : entry);
   const {code} = transformSync(
-    'import {THEO_LICENSE_KEY} from "@env"; module.exports = ' + expression + ';',
+    'import {DOLBY_LICENSE_KEY} from "@env"; module.exports = ' + expression + ';',
     {...config, plugins, configFile: false, babelrc: false, filename: 'env-fixture.ts'},
   );
   const module = {exports: undefined};
@@ -37,15 +37,15 @@ const transform = `
 
 for (const [name, contents, expected] of [
   ['missing .env leaves license unset', undefined, null],
-  ['empty license leaves license unset', 'THEO_LICENSE_KEY=\n', null],
+  ['empty license leaves license unset', 'DOLBY_LICENSE_KEY=\n', null],
   [
     'whitespace-only license leaves license unset',
-    'THEO_LICENSE_KEY="   "\n',
+    'DOLBY_LICENSE_KEY="   "\n',
     null,
   ],
   [
     'local license is inlined and trimmed',
-    'THEO_LICENSE_KEY=" test-license "\n',
+    'DOLBY_LICENSE_KEY=" test-license "\n',
     'test-license',
   ],
 ]) {
@@ -55,7 +55,7 @@ for (const [name, contents, expected] of [
     const envPath = path.join(directory, '.env');
     if (contents !== undefined) writeFileSync(envPath, contents);
     const env = {...process.env, NODE_ENV: 'test'};
-    delete env.THEO_LICENSE_KEY;
+    delete env.DOLBY_LICENSE_KEY;
     delete env.APP_ENV;
     delete env.BABEL_ENV;
     const result = execFileSync(process.execPath, ['-e', transform, envPath], {
@@ -68,11 +68,17 @@ for (const [name, contents, expected] of [
   });
 }
 
+test('release builds reset Metro cache so env changes are bundled', () => {
+  const {scripts} = require('../package.json');
+  assert.ok(scripts['build:release'].split(/\s+/).includes('--reset-cache'));
+  assert.ok(scripts['app:release'].split(/\s+/).includes('build:release'));
+});
+
 test('env imports are limited to the license key', () => {
   const plugin = require('../babel.config').plugins?.find(
     (entry) => entry[0] === 'module:react-native-dotenv',
   );
-  assert.deepEqual(plugin?.[1].allowlist, ['THEO_LICENSE_KEY']);
+  assert.deepEqual(plugin?.[1].allowlist, ['DOLBY_LICENSE_KEY']);
 });
 
 test('local env files are ignored but the example can be committed', () => {
@@ -105,7 +111,7 @@ test('local env files are ignored but the example can be committed', () => {
 test('env example contains only an empty license placeholder', () => {
   assert.ok(
     readFileSync(path.join(root, '.env.example'), 'utf8') ===
-      'THEO_LICENSE_KEY=\n',
+      'DOLBY_LICENSE_KEY=\n',
     'The example must contain only an empty license placeholder',
   );
 });
