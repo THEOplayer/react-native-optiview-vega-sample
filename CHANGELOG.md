@@ -1,5 +1,11 @@
 # Vega changelog
 
+## Unreleased
+
+### Fixes
+
+- Blocked content seeking through the React Native API and default remote Skip, Fast Forward, Rewind, Seek, and Start Over commands throughout IMA ad breaks, including paused ads and gaps between ads. Blocked commands are discarded; ad Play/Pause and normal post-ad seeking remain available.
+
 ## 1.0.0
 
 Changes to the Vega SDK, React Native adapter, and demo since `vega-beta.21` (2026-04-29).
