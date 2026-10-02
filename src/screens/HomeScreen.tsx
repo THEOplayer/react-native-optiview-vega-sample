@@ -11,7 +11,7 @@ import {SOURCES} from '../source/Sources';
 import {StreamDescription} from '../source/StreamDescription';
 import {StreamItem} from '../components/StreamItem';
 import {COLORS} from '../styles/Colors';
-import THEOplayerLogo from '../assets/THEOplayerLogo.png';
+import DolbyLogo from '../../doc/logo-optiview-dark.png';
 import FireTVLogo from '../assets/firetv.png';
 
 import * as AppPackage from '../../package.json';
@@ -59,14 +59,14 @@ export const HomeScreen = ({
       }}>
       <View style={styles.fullscreen}>
         <View style={styles.header}>
-          <Image source={THEOplayerLogo} style={styles.theoLogo} />
+          <Image source={DolbyLogo} style={styles.dolbyLogo} />
           <View style={{flex: 1}} />
           <Image source={FireTVLogo} style={styles.fireLogo} />
           <View style={styles.meta}>
             <Text
               style={
                 styles.metaText
-              }>{`THEOplayer version: ${THEOplayerPackage.version}`}</Text>
+              }>{`OptiView Player version: ${THEOplayerPackage.version}`}</Text>
             <Text
               style={
                 styles.metaText
@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: COLORS.WHITE,
   },
-  theoLogo: {
+  dolbyLogo: {
     resizeMode: 'contain',
-    width: 350,
+    width: 160,
     height: 60,
   },
   fireLogo: {
