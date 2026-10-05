@@ -2,10 +2,10 @@
 
 ## Overview
 
-A good starting point to get acquainted with THEOplayer's advertising features
-is THEOplayer's [Knowledge Base](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/).
+A good starting point to get acquainted with OptiView's advertising features
+is OptiView's [Knowledge Base](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/).
 
-While THEOplayer supports a wide range of different
+While OptiView supports a wide range of different
 [ad types](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/#an-overview-of-theoplayers-different-ad-types),
 `@dolby-optiview/react-native-vega` currently only supports client-side ad insertion (CSAI) through [Google IMA](#getting-started-with-google-ima).
 
@@ -110,7 +110,7 @@ const playerConfig = {
 
 ### Using the Ads API
 
-THEOplayer provides an [Ads API](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/#ads-api) that enables additional features such as:
+OptiView provides an [Ads API](https://optiview.dolby.com/docs/theoplayer/knowledge-base/advertisement/user-guide/#ads-api) that enables additional features such as:
 
 - Querying whether an ad is currently playing;
 - Requesting an ad skip on supported integrations (not supported by the current Vega integration; see [Skippable ads](#skippable-ads));

@@ -1,6 +1,6 @@
-# Logix Ads Manager patch for THEOplayer on Vega
+# Logix Ads Manager patch for OptiView on Vega
 
-This document describes the integration-specific patch to `@logituit-rel/logix-ads-manager` used with THEOplayer's React Native integration on Vega. It addresses ad-page loading and remote-control focus handling. It is not an upstream Logituit release.
+This document describes the integration-specific patch to `@logituit-rel/logix-ads-manager` used with OptiView's React Native integration on Vega. It addresses ad-page loading and remote-control focus handling. It is not an upstream Logituit release.
 
 **No manual patching is required.** The supplied `logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz` already contains all changes described here. Install that archive directly; do not apply the `.patch` file again. The source patch is included for review and maintainer-led reproduction, not as an application installation or build step.
 
@@ -11,7 +11,7 @@ This document describes the integration-specific patch to `@logituit-rel/logix-a
 | Distribution     | [`logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz`](./logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz) |
 | Source patch     | [`logix-ads-manager-0.3.0-bundled-html.patch`](./logix-ads-manager-0.3.0-bundled-html.patch) (already applied to the archive) |
 
-The patch targets the React Native 0.83 Vega integration and retains upstream Logix 0.3.0's dependency requirements. It is not an upgrade path for React Native 0.72 or Logix 0.2.x. Align dependencies with your supported THEOplayer/Vega SDK release before installation, and validate your application's device and SDK combination before deployment.
+The patch targets the React Native 0.83 Vega integration and retains upstream Logix 0.3.0's dependency requirements. It is not an upgrade path for React Native 0.72 or Logix 0.2.x. Align dependencies with your supported OptiView/Vega SDK release before installation, and validate your application's device and SDK combination before deployment.
 
 ## What the patch changes
 
@@ -40,7 +40,7 @@ This does not disable cleartext protection or require a blanket HTTP allowlist. 
 
 **Development consequence:** changes to the packaged HTML require rebuilding and reinstalling the app. The HTML is no longer live-loaded from Metro; ordinary React Native JavaScript development remains separate.
 
-### 2. Keep native media-control ownership with THEOplayer
+### 2. Keep native media-control ownership with OptiView
 
 The patch explicitly sets the ad WebView's property:
 
@@ -48,9 +48,9 @@ The patch explicitly sets the ad WebView's property:
 allowsDefaultMediaControl={false}
 ```
 
-This disables WebView's automatic Vega media-control bridge, avoiding competition with the media-control handler registered by the THEOplayer integration.
+This disables WebView's automatic Vega media-control bridge, avoiding competition with the media-control handler registered by the OptiView integration.
 
-**Integration requirement:** the host application must provide the THEOplayer media-control integration. This package should not be used as a standalone WebView player expecting WebView's default transport handling. Applications supplying a custom media-control handler remain responsible for routing commands correctly between content and active ads.
+**Integration requirement:** the host application must provide the OptiView media-control integration. This package should not be used as a standalone WebView player expecting WebView's default transport handling. Applications supplying a custom media-control handler remain responsible for routing commands correctly between content and active ads.
 
 ### 3. Release input focus when an ad break ends
 
@@ -87,7 +87,7 @@ This releases the ad view's focus and prevents hidden ad views from continuing t
 
 5. Rebuild, reinstall, and fully restart the Vega application using your project's normal deployment commands. Do not rely solely on Fast Refresh when adopting the patched dependency.
 
-The THEOplayer adapter's peer dependency does not automatically install this local patch for external applications. The consuming application must select the supplied archive. In linked or multi-package projects, ensure the runtime does not resolve a second, unpatched Logix installation.
+The OptiView adapter's peer dependency does not automatically install this local patch for external applications. The consuming application must select the supplied archive. In linked or multi-package projects, ensure the runtime does not resolve a second, unpatched Logix installation.
 
 For this sample, the archive is in `lib/`, so the dependency path from the application root is `file:lib/logituit-rel-logix-ads-manager-0.3.0+theoplayer.3.tgz`.
 
@@ -108,7 +108,7 @@ This patch does not:
 - Fix empty ad responses, ad-server fill decisions, HTTP errors, or CORS configuration.
 - Change video decoding or fix every ad-media buffering or decoder problem.
 - Modify Vega WebView's compatibility metadata, application permissions, or network-security policy.
-- Include the THEOplayer adapter's separate startup, teardown, or diagnostic changes.
+- Include the OptiView adapter's separate startup, teardown, or diagnostic changes.
 
 A valid ad response and compatible media are still required. Successful HTML loading and correct remote-key routing do not by themselves establish that every creative will play.
 

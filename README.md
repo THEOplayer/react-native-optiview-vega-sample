@@ -15,7 +15,7 @@ This projects falls under the license as defined in https://github.com/THEOplaye
 
 ## Overview
 
-This project demonstrates the use of THEOplayer in a sample Vega/Kepler app.
+This project demonstrates the use of OptiView in a sample Vega/Kepler app.
 
 [Amazon Vega](https://developer.amazon.com/docs/vega/0.24/vega-release-notes) is a
 React Native SDK that helps third-party developers create, build, test, package, and publish
@@ -26,7 +26,7 @@ apps for Fire TV devices running the Vega OS. With Vega, your app can run on mul
 | Feature                        | Supported | Notes                                                                                                                     |
 |--------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------|
 | HLS (CMAF) streams             | &check;   |                                                                                                                           |
-| HLS (TS) streams               | &check;   | Using a Turbo module hosting THEO's own transmuxing functionality.                                                        |
+| HLS (TS) streams               | &check;   | Using a Turbo module hosting THEOmux transmuxing functionality.                                                        |
 | DASH streams                   | &check;   |                                                                                                                           |
 | Adaptive Bitrate Streaming     | &check;   |                                                                                                                           |
 | Content Protection (DRM)       | &check;   |                                                                                                                           |
@@ -54,4 +54,4 @@ It demonstrates how to set up and use `@dolby-optiview/react-native-vega` 1.0.0 
 The API of `@dolby-optiview/react-native-vega` aims to be compatible with the API of `react-native-theoplayer`,
 the React Native SDK for all Web and mobile devices, which is documented here:
 
-- [THEOplayer React Native SDK Documentation](https://optiview.dolby.com/docs/theoplayer/react-native/)
+- [OptiView React Native SDK Documentation](https://optiview.dolby.com/docs/theoplayer/react-native/)

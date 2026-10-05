@@ -22,7 +22,7 @@ Changes to the Vega SDK, React Native adapter, and demo since `vega-beta.21` (20
 - Renamed the core bundles to `OptiView.vega.js` and `OptiView.vega.d.ts` and updated package descriptions to Dolby OptiView Vega. The `@theoplayer/theomux-vega` dependency remains unchanged.
 - Upgraded to React Native 0.83, React 19.2, and the Vega React Native 4 runtime.
 - Updated the demo manifest to target Vega OS 1.2 and allow cleartext traffic only to localhost.
-- Migrated to Logix Ads Manager 0.3.0 with the [THEOplayer integration patch](lib/LOGIX_AD_MANAGER_PATCH.md).
+- Migrated to Logix Ads Manager 0.3.0 with the [OptiView integration patch](lib/LOGIX_AD_MANAGER_PATCH.md).
 - Updated the demo UI package to 0.23.5 and DRM integration to 1.13.0.
 - Declared the Vega core SDK as a peer dependency of the React Native adapter.
 - Updated the Node.js requirement to 22.14 or newer and adopted Windows-compatible cleanup scripts.
@@ -36,7 +36,7 @@ Changes to the Vega SDK, React Native adapter, and demo since `vega-beta.21` (20
 - Fixed content briefly resuming between a scheduled midroll's readiness pause and ad playback, while preserving post-ad resume and startup-error recovery.
 - Fixed UI Play actions throwing an uncaught exception after a license or playback error in the React Native adapter, while preserving the existing player error event.
 - Fixed autoplay being blocked by outdated capability reporting.
-- Fixed default remote Play/Pause commands bypassing THEOplayer and active ads, while preserving custom handlers across player resets.
+- Fixed default remote Play/Pause commands bypassing OptiView and active ads, while preserving custom handlers across player resets.
 - Fixed internal content playback events interrupting ad playback.
 - Fixed hidden ad WebViews consuming remote-control keys after content resumed.
 - Fixed ad-page loading failures caused by Metro HTTP URLs and cleartext IMA bridge requests.

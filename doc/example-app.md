@@ -13,17 +13,17 @@ which provides a `THEOplayerView` component that aligns with our `react-native-t
 - Vega SDK **v0.24** with a device running **Vega OS 1.2** or newer and supporting Vega React Native runtime 4.
 - Node.js **22.14.0** or newer.
 - This sample uses **React Native 0.83.0**, **React 19.2.0**, and **Dolby OptiView Vega 1.0.0**.
-- In order to use one of these THEOplayer SDKs, it is necessary to obtain a **valid React Native THEOplayer license**. You can sign up for a THEOplayer SDK license through [our portal](https://portal.theoplayer.com/).
-- The local npm THEOplayer packages, which are not publicly available yet but provided in the `lib` folder:
+- In order to use one of these OptiView SDKs, it is necessary to obtain a **valid React Native OptiView license**. You can sign up for an OptiView SDK license through [our portal](https://portal.theoplayer.com/).
+- The local npm OptiView packages and THEOmux dependency, which are not publicly available yet but provided in the `lib` folder:
     - `@dolby-optiview/vega`: Dolby OptiView native SDK for Vega.
     - `@dolby-optiview/react-native-vega`: React Native API for Vega.
-    - `@theoplayer/theomux-vega`: Turbo module hosting THEO's own transmuxing functionality for TS-based HLS streams.
+    - `@theoplayer/theomux-vega`: Turbo module hosting THEOmux transmuxing functionality for TS-based HLS streams.
 - Ads use the supplied `@logituit-rel/logix-ads-manager` **0.3.0+theoplayer.3** archive. See the [patch notes](../lib/LOGIX_AD_MANAGER_PATCH.md) for installation, behavior, and limitations.
 - Optionally, Visual Studio Code with Vega plugins is installed.
 
 ### Configure the license
 
-1. Obtain a valid THEOplayer React Native license with Vega support from [the THEOplayer portal](https://portal.theoplayer.com/).
+1. Obtain a valid OptiView React Native license with Vega support from [the license portal](https://portal.theoplayer.com/).
 2. From the sample repository root, copy [`.env.example`](../.env.example) to `.env` if you do not already have one:
 
    ```sh
